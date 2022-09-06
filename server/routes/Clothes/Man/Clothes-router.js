@@ -1,11 +1,10 @@
 import express  from "express";
-import mongoose from "mongoose";
-import {getAllClothes, postClothe, updateClothe, deleteClothe} from '../controllers/Clothes.js';
+import {getAllClothes, postClothe, updateClothe, deleteClothe} from '../../../controllers/Clothes/Man/Clothes.js';
 const router = express.Router();
 
 router.get('/',getAllClothes);
 router.post('/',postClothe);
-router.patch('/:id',updateClothe);
+router.put('/:id',updateClothe);
 router.delete('/:id',deleteClothe)
 
 

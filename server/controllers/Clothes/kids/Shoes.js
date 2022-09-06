@@ -1,11 +1,11 @@
 import express from 'express';
 import mongoose from 'mongoose';
-import clothes from '../models/clothes.js';
+import Shoes from '../../../models/clothes/kids/Shoes.js';
 
 const router = express.Router();
 
 export const getAllClothes =  (req, res, next) => { 
-   clothes.find()
+   Shoes.find()
    .then((data) => {
        res.status(201).json(data)
    })
@@ -16,10 +16,10 @@ export const getAllClothes =  (req, res, next) => {
 
 
 export const postClothe =  (req,res,next) => {
-    const clothe= new clothes({
+    const Shoe= new Shoes({
         ...req.body
     });
-    clothe.save()
+    Shoe.save()
       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
       .catch(error => console.log(error.response) );
 }
@@ -30,7 +30,7 @@ export const updateClothe =  (req,res,next) => {
     if(!mongoose.Types.ObjectId.isValid(_id)){
         return res.status(404).send('No post with that id ')
     }
-    clothes.updateOne({_id: req.params.id}, {
+    Shoes.updateOne({_id: req.params.id}, {
         ...req.body, _id:req.params.id
     })
     .then(() => {
@@ -43,7 +43,7 @@ export const updateClothe =  (req,res,next) => {
 
 
 export const deleteClothe = (req,res,next) => {
-    clothes.deleteOne({_id: req.params.id})
+    Shoes.deleteOne({_id: req.params.id})
     .then(() => {
         res.status(200).json({message:"Objet supprimé !"})
     })

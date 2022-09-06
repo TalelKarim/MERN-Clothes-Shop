@@ -26,14 +26,20 @@ const clotheSchema = mongoose.Schema({
         required: true
     },
 
-    rating:{
-        type:Number,
-        required: true
-    },
 
     Likes:{
         type:Number,
         required: false 
+    },
+
+    info:{
+        type:String,
+        required:false
+    },
+
+    feedback:{
+        type:String,
+        required:false
     }
 
 
