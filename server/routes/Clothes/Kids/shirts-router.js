@@ -1,5 +1,6 @@
 import express  from "express";
 import {getAllClothes, postClothe, updateClothe, deleteClothe} from '../../../controllers/Clothes/kids/Shirts.js';
+import Multer from '../../../middlewares/multer-config.js';
 const router = express.Router();
 
 router.get('/kids/shirts',getAllClothes);

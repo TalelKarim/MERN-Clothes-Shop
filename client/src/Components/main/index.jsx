@@ -33,6 +33,7 @@ export default function Main(props) {
                           actualPrice = {item.actualPrice}
                           availableSizes = {item.Size} 
                           likes = {item.Likes}
+                          imageUrl = {item.imageUrl}
                       /> 
                     })
 

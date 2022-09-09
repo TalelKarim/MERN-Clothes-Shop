@@ -2,8 +2,12 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotEnv from 'dotenv';
 import cors from 'cors';
+import { dirname } from 'path';
+import { fileURLToPath } from 'url';
+import path from 'path'
 
-
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
 ///Routes
 
   // Man Routes
@@ -29,6 +33,9 @@ import cors from 'cors';
 
 dotEnv.config();
 const app = express();
+
+
+app.use('/images', express.static(path.join(__dirname, '/images')))
 
 app.use(express.json());
 app.use(cors());

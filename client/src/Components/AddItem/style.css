@@ -1,0 +1,27 @@
+.gender{
+  display: flex;
+  font-size: 13px;
+  justify-content: space-between;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+
+
+.checks {
+    width: 70%;
+    display: flex;
+    justify-content: space-around;
+}
+
+.type span{
+    font-size: 14px;
+}
+
+.type{
+    margin-bottom: 10px;
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+    width: 100%;
+}

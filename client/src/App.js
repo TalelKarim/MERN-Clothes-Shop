@@ -11,10 +11,10 @@ import Footer from './Components/Footer'
 import Head from './Components/header'
 import Nav from './Components/nav'
 import Main from './Components/main'
-import {getClothesAct} from './actions/Clothes'
+import {getClothesAct} from './actions/Man/Clothes'
 import Pagination from './Components/Pagination'
 import AddItem from './Components/AddItem'
-
+import { getClothesActWomanShoes } from './actions/Woman/shoes'
 
 const AppContainer = styled.div`
   height: auto;
@@ -57,6 +57,10 @@ export default function App() {
     return state.clothes
  })
 
+ const woman_shoes = useSelector((state) => {
+  return state.woman_shoes
+})
+
   const indexOfLastPost = currentPage * postsPerPage;
   const indexOfFirstPost = indexOfLastPost - postsPerPage;
   const currentClothes = clothes.slice(indexOfFirstPost, indexOfLastPost);
@@ -66,6 +70,12 @@ export default function App() {
   useEffect(() => {
     dispatch(getClothesAct());
 }, [dispatch, clothes])
+
+// useEffect(() => {
+//   dispatch(getClothesActWomanShoes());
+// }, [dispatch, woman_shoes])
+
+// console.log(woman_shoes)
 
    // Change page
    const paginate = pageNumber => setCurrentPage(pageNumber);

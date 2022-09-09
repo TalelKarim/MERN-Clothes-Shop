@@ -9,11 +9,11 @@ export default function Clothe(props) {
     <section>
       
         <div className="card">
-            <img src={props.url}/>
+            <img src={props.imageUrl}/>
             <div className="info">
                 <p className="category">Available Sizes :{props.availableSizes}</p>
                 <p className="name">{props.name}</p>
-                <p className="price">{props.actualPrice} <span className="old">{props.oldPrice}</span></p>
+                <p className="price">{props.actualPrice} DT <span className="old">{props.oldPrice} DT</span></p>
                 <p className="rating"><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i><i className="fas fa-star"></i></p>
 
             </div>

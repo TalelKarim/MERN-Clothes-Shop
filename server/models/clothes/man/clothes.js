@@ -18,7 +18,7 @@ const clotheSchema = mongoose.Schema({
 
     actualPrice:{
        type: String,
-       required:true
+       required: true
     },
 
     oldPrice:{
@@ -29,17 +29,17 @@ const clotheSchema = mongoose.Schema({
 
     Likes:{
         type:Number,
-        required: false 
+        required: true
     },
 
     info:{
         type:String,
-        required:false
+        required: true
     },
 
     feedback:{
         type:String,
-        required:false
+        required: true
     }
 
 

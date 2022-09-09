@@ -17,7 +17,9 @@ export const getAllClothes =  (req, res, next) => {
 
 export const postClothe =  (req,res,next) => {
     const clothe= new clothes({
-        ...req.body
+        ...req.body,
+        imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
+
     });
     clothe.save()
       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))

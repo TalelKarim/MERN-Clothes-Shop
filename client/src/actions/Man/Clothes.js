@@ -1,4 +1,4 @@
-import * as api from '../api/index.js';
+import * as api from '../../api/Man/index.js';
 
 
 export const getClothesAct = () => async (dispatch) => {
