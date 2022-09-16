@@ -1,10 +1,10 @@
-import * as api from '../../api/Woman/robes.js';
+import * as api from '../../api/Woman/robes';
 
 
 export const getClothesActRobes= () => async (dispatch) => {
   try {
     const  {data}  = await api.fetchClothes();
-    dispatch({ type: "FETCH_ALL", payload: data });
+    dispatch({ type: "FETCH_ALL_ROBES", payload: data });
   } catch (error) {
     console.log(error.message);
   }
@@ -15,7 +15,7 @@ export const getClothesActRobes= () => async (dispatch) => {
 export const createClothesActRobes = (clothes) => async (dispatch) => {
   try {
     const { data } =  await api.createClothes(clothes);
-    dispatch({ type: "CREATE", payload: data });
+    dispatch({ type: "CREATE_ROBES", payload: data });
   } catch (error) {
     console.log(error)
   }
@@ -26,7 +26,7 @@ export const createClothesActRobes = (clothes) => async (dispatch) => {
 export const updatedPostActRobes = (id, clothes) => async(dispatch) => {
   try{
       const  {data} =  await api.updateClothes(id,clothes);
-      dispatch({type: 'UPDATE', payload: data});
+      dispatch({type: 'UPDATE_ROBES', payload: data});
   }
 
   catch(error){

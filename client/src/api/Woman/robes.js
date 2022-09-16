@@ -8,6 +8,7 @@ import axios from 'axios';
 
 
    export const fetchClothes = () => axios.get(url);
+    
 
    export const createClothes = (newClothes) => axios.post(url, newClothes) 
    export const updateClothes = (id, updatedClothes) => {

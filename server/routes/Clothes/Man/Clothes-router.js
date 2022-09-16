@@ -6,7 +6,7 @@ import Multer from '../../../middlewares/multer-config.js';
 
 router.get('/',getAllClothes);
 router.post('/',Multer,postClothe);
-router.put('/:id',updateClothe);
+router.put('/:id',Multer,updateClothe);
 router.delete('/:id',deleteClothe)
 
 

@@ -1,4 +1,4 @@
-import * as api from '../../api/kids/trousers';
+import * as api from '../../api/Kids/trousers';
 
 
 export const getClothesActKidsTrousers = () => async (dispatch) => {

@@ -5,8 +5,8 @@ import Multer from '../../../middlewares/multer-config.js';
 const router = express.Router();
 
 router.get('/kids/shoes',getAllClothes);
-router.post('/kids/shoes',postClothe);
-router.put('/kids/shoes/:id',updateClothe);
+router.post('/kids/shoes', Multer, postClothe);
+router.put('/kids/shoes/:id', Multer, updateClothe);
 router.delete('/kids/shoes/:id',deleteClothe)
 
 

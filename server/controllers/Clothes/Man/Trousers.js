@@ -19,7 +19,7 @@ export const postClothe =  (req,res,next) => {
     const Trouser = new Trousers({
         ...req.body
     });
-    Trousers.save()
+    Trouser.save()
       .then(() => res.status(201).json({ message: 'Objet enregistré !'}))
       .catch(error => console.log(error.response) );
 }

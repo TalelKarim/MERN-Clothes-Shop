@@ -81,9 +81,7 @@ export default function AddItem(props) {
        data.append("feedback", feedback)
        data.append('photo', file)
   
-    //    data.append('photo', File)
-      //  data.append('imageUrl', "https://images.unsplash.com/flagged/photo-1596479042555-9265a7fa7983?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80")
-      //  dispatch(createClothesAct(data))
+   
         dispatch(createClothesAct(data))
          .then(() => {
             console.log('Clothes created successfully')

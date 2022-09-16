@@ -3,6 +3,9 @@ import styled from 'styled-components'
 import {Link} from 'react-router-dom';
 import Dropdown from 'react-bootstrap/Dropdown';
 import { useNavigate } from 'react-router-dom';
+import { useState, useContext } from 'react'
+import { ItemContext } from '../../Utils/context' 
+import { HomeContext } from '../../Utils/context';
 
 const NavContainer = styled.div`
   width: 100%;
@@ -17,7 +20,7 @@ const NavContainer = styled.div`
 
   const StyledLink = styled(Link)`
       padding: 5px;
-      color: #fff;
+      color: /mainfff;
       text-decoration: none;
       font-size: 15px;
       transition : 0.7s ease;
@@ -36,10 +39,25 @@ export default function Nav() {
     navigate('/add')
   }
 
+  function navigateHome(){
+    navigate('/')
+  }
+  function handleClick(){
+    navigateToAdd()
+    toggleDisplay()
+  }
+
+  function handleClick_two(){
+    navigateHome()
+    toggleDisplay()
+  }
+
+  const {item, setItem} = useContext(ItemContext)
+  const {display, toggleDisplay} = useContext(HomeContext)
   return (
      <NavContainer>
 
-    <Dropdown>
+    <Dropdown style={{ display : !display ? "none" : null}} >
       <Dropdown.Toggle variant="success" id="dropdown-basic"
              style={{
               color: 'black',
@@ -50,15 +68,15 @@ export default function Nav() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="/login">Shirts</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Trousers</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Formal Shoes</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Sport Shoes</Dropdown.Item>
+        <Dropdown.Item href="#"     onClick={() => { setItem("ManShirts")}}>Shirts</Dropdown.Item>
+        <Dropdown.Item href="#"     onClick={() => {setItem("Man_Trousers")}}>Trousers</Dropdown.Item>
+        <Dropdown.Item href="#"     onClick={() => {setItem("Fshoes")}}>Formal Shoes</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("Sshoes")}}>Sport Shoes</Dropdown.Item>
 
       </Dropdown.Menu>
     </Dropdown>
 
-    <Dropdown>
+    <Dropdown style={{ display : !display ? "none" : null}}>
       <Dropdown.Toggle variant="success" id="dropdown-basic"
              style={{
               color: 'black',
@@ -69,14 +87,14 @@ export default function Nav() {
       </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Shoes</Dropdown.Item> 
-        <Dropdown.Item href="#/action-1">Trousers</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Shirts</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Robes</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("Woman_shoes")}}>Shoes</Dropdown.Item> 
+        <Dropdown.Item href="#"    onClick={() => {setItem("woman_trousers")}}>Trousers</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("woman_shirts")}}>Shirts</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("robes")}}>Robes</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
 
-    <Dropdown>
+    <Dropdown style={{ display : !display ? "none" : null}}>
       <Dropdown.Toggle 
        style={{
          color: 'black',
@@ -88,24 +106,43 @@ export default function Nav() {
               </Dropdown.Toggle>
 
       <Dropdown.Menu>
-        <Dropdown.Item href="#/action-1">Shoes</Dropdown.Item>
-        <Dropdown.Item href="#/action-2">Shirts</Dropdown.Item>
-        <Dropdown.Item href="#/action-3">Trousers</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("kids_shoes")}}>Shoes</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("kids_shirts")}}>Shirts</Dropdown.Item>
+        <Dropdown.Item href="#"    onClick={() => {setItem("kids_trousers")}}>Trousers</Dropdown.Item>
       </Dropdown.Menu>
     </Dropdown>
       
     <button 
       className='btn btn-success '
-      onClick={navigateToAdd}
+      onClick={handleClick}
       style={{
         position:"relative",
         marginRight:"-150px",
-        marginLeft: "100px"
+        marginLeft: "100px",
+        display : !display ? "none": "block"
+
+        
       }}
       type='submit'
        id="submit">
-        Add your own item
+          Add your own item
      </button>  
+
+
+     <button 
+      className='btn btn-success '
+      onClick={handleClick_two}
+      style={{
+        position:"relative",
+        marginRight:"0%",
+        z_index: "1000",
+        display : display ? "none": "block"
+        
+      }}
+      type='submit'
+       id="submit">
+          See items 
+     </button> 
      </NavContainer>
   )
 }
